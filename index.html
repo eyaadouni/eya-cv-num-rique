@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV — Eya Adouni</title>
+<meta name="description" content="CV numérique d'Eya Adouni — Mastère de Recherche STIC, réseaux véhiculaires, drones-relais, apprentissage automatique. Français, English, العربية.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+    --ink: #151b2e;
+    --text: #232a3d;
+    --muted: #5d6579;
+    --line: #d9dce6;
+    --accent: #b7791a;
+    --accent-soft: #fbf1dc;
+    --display: "Bricolage Grotesque", sans-serif;
+    --body: "IBM Plex Sans", sans-serif;
+  }
+  
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { font-family: var(--body); font-size: 9.9pt; line-height: 1.4; color: var(--text); }
+  a { color: inherit; text-decoration: none; }
+
+  /* En-tête */
+  .head { display: grid; grid-template-columns: 1fr 24mm; gap: 6mm; align-items: center; padding-bottom: 3.2mm; border-bottom: 1.5px solid var(--ink); }
+  .head h1 { margin: 0; font-family: var(--display); font-size: 25pt; font-weight: 600; letter-spacing: -0.01em; line-height: 1; color: var(--ink); }
+  .head .title { margin: 2mm 0 0; font-family: var(--display); font-size: 11pt; font-weight: 500; color: var(--ink); }
+  .head .sub { margin: 0.6mm 0 0; font-size: 9pt; color: var(--muted); }
+  .head .contacts { margin: 2.4mm 0 0; font-size: 8.6pt; color: var(--text); }
+  .head .contacts span { white-space: nowrap; }
+  .head .contacts span + span::before { content: "·"; margin: 0 1.6mm; color: var(--accent); }
+  .photo { width: 24mm; height: 24mm; border-radius: 50%; object-fit: cover; border: 1.5px solid var(--line); }
+
+  /* Corps en deux colonnes */
+  .body { display: grid; grid-template-columns: 1fr 52mm; gap: 7mm; margin-top: 3.2mm; }
+  h2 { margin: 0 0 1.6mm; font-family: var(--display); font-size: 10.5pt; font-weight: 600; color: var(--ink); display: flex; align-items: center; gap: 2mm; }
+  h2::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+  section { margin-bottom: 3.4mm; break-inside: avoid; }
+  p { margin: 0; }
+
+  /* Entrées datées */
+  .entry { display: grid; grid-template-columns: 24mm 1fr; gap: 2.5mm; margin-bottom: 1.9mm; }
+  .entry .when { color: var(--muted); font-size: 8.4pt; padding-top: 0.5mm; }
+  .entry .what { font-weight: 500; color: var(--ink); }
+  .entry .where { color: var(--muted); }
+  .entry p { margin-top: 0.4mm; }
+
+  /* Recherche */
+  .research { padding: 2.6mm 3mm; background: var(--accent-soft); border-inline-start: 2.5px solid var(--accent); }
+  .research .rtitle { font-family: var(--display); font-size: 10.6pt; font-weight: 600; color: var(--ink); line-height: 1.2; }
+  .research .rmeta { margin: 0.8mm 0 1.4mm; font-size: 8.6pt; color: var(--muted); }
+  ul { margin: 0; padding-left: 3.6mm; }
+  li { margin: 0 0 0.7mm; }
+  li::marker { color: var(--accent); }
+
+  /* Colonne droite */
+  .side section { margin-bottom: 3.6mm; }
+  .skill { margin-bottom: 1.5mm; }
+  .skill b { display: block; font-weight: 500; color: var(--ink); }
+  .skill span { color: var(--text); }
+  .tags { display: flex; flex-wrap: wrap; gap: 1.2mm; }
+  .tag { padding: 0.5mm 1.8mm; border: 1px solid var(--line); border-radius: 2mm; font-size: 8.2pt; }
+  .langs div { display: flex; justify-content: space-between; border-bottom: 1px dotted var(--line); padding: 0.5mm 0; }
+  .side p.small { font-size: 8.6pt; }
+
+/* ---------- Habillage web (barre, bandeau défilant, mise en page écran) ---------- */
+html { background: #eef0f5; }
+body { background: #eef0f5; font-size: 10.6pt; }
+.sheet { max-width: 820px; margin: 22px auto 48px; padding: 30px 34px 36px; background: #fff; border-radius: 14px; box-shadow: 0 10px 40px rgba(21, 27, 46, 0.10); }
+.lang { display: none; }
+.lang.is-active { display: block; }
+
+.topbar { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 10px 22px; background: rgba(21, 27, 46, 0.96); color: #e9ecf5; backdrop-filter: blur(6px); }
+.topbar__name { font-family: var(--display); font-size: 15px; font-weight: 600; letter-spacing: 0.01em; }
+.topbar__actions { display: flex; align-items: center; gap: 8px; }
+.switch { display: inline-flex; padding: 3px; background: rgba(233, 236, 245, 0.10); border-radius: 999px; }
+.switch button { padding: 6px 14px; border: 0; border-radius: 999px; background: transparent; color: #a3abc4; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; }
+.switch button[aria-pressed="true"] { background: #f5b646; color: #1a1300; }
+.pdf { padding: 7px 14px; border: 1px solid rgba(233, 236, 245, 0.28); border-radius: 999px; color: #e9ecf5; font-size: 13px; font-weight: 500; text-decoration: none; }
+.pdf:hover { border-color: #f5b646; color: #f5b646; }
+
+.ticker { overflow: hidden; background: #f5b646; color: #1a1300; font-family: var(--display); font-size: 14px; font-weight: 600; letter-spacing: 0.01em; }
+.ticker__track { display: flex; width: max-content; animation: ticker 26s linear infinite; }
+.ticker:hover .ticker__track { animation-play-state: paused; }
+.ticker__item { padding: 9px 0; white-space: nowrap; }
+.ticker__item::after { content: "✦"; margin: 0 28px; opacity: 0.6; }
+.ticker a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) {
+  .ticker__track { animation: none; width: auto; justify-content: center; }
+  .ticker__item + .ticker__item { display: none; }
+}
+
+.sheet .head .contacts { display: flex; flex-wrap: wrap; row-gap: 2px; }
+.sheet .head .contacts span { white-space: nowrap; }
+
+@media (max-width: 720px) {
+  .sheet { margin: 12px 10px 32px; padding: 20px 18px 26px; border-radius: 10px; }
+  .head { grid-template-columns: 1fr; }
+  .head img.photo { order: -1; width: 22mm; height: 22mm; }
+  .head .contacts span { display: block; white-space: normal; }
+  .head .contacts span + span::before { content: none; margin: 0; }
+  .body { grid-template-columns: 1fr; gap: 4mm; }
+  .entry { grid-template-columns: 1fr; gap: 0.6mm; }
+  .topbar { padding: 9px 12px; }
+  .topbar__name { font-size: 14px; }
+}
+
+@media print {
+  @page { size: A4; margin: 11mm 12mm; }
+  html, body { background: #fff; font-size: 9.9pt; }
+  .topbar, .ticker { display: none !important; }
+  .sheet { max-width: none; margin: 0; padding: 0; border-radius: 0; box-shadow: none; }
+}
+
+.lang[dir="rtl"] { font-family: "Noto Sans Arabic", "Cairo", var(--body); }
+.lang[dir="rtl"] h1, .lang[dir="rtl"] h2, .lang[dir="rtl"] .head .title, .lang[dir="rtl"] .research .rtitle { font-family: "Noto Sans Arabic", "Cairo", var(--display); }
+.lang[dir="rtl"] .head .contacts span + span::before { content: "·"; margin: 0 1.6mm; }
+.lang[dir="rtl"] ul { padding-inline-start: 3.6mm; padding-left: 0; }
+.tag em { font-style: normal; color: var(--muted); }
+.head .contacts { display: flex; flex-wrap: wrap; row-gap: 2px; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="topbar__name">Eya Adouni · CV</span>
+  <div class="topbar__actions">
+    <div class="switch" role="group" aria-label="Langue / Language / اللغة">
+      <button type="button" data-lang="fr" aria-pressed="true">FR</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      <button type="button" data-lang="ar" aria-pressed="false">AR</button>
+    </div>
+    <a class="pdf" id="pdf-link" href="assets/docs/cv-fr.pdf" download>PDF</a>
+  </div>
+</div>
+
+<div class="ticker" aria-label="Portfolio"><div class="ticker__track" id="ticker-track"></div></div>
+
+<main class="sheet" id="sheet">
+<div class="lang is-active" data-lang="fr" lang="fr" dir="ltr">
+<header class="head"><div>
+<h1>Eya Adouni</h1>
+<p class="title">Mastère de Recherche en Sciences et Technologies de l'Information et de la Communication</p><p class="sub">Réseaux véhiculaires (V2X), drones-relais, apprentissage automatique · Développeuse full-stack</p>
+<p class="contacts"><span><a href="mailto:eyaadouni03@gmail.com">eyaadouni03@gmail.com</a></span><span>Gabès, Tunisie · mobile en France</span><span><a href="https://eya-adouni.netlify.app/">eya-adouni.netlify.app</a></span><span><a href="https://www.linkedin.com/in/eya-adouni-716b5337b/">linkedin.com/in/eya-adouni-716b5337b</a></span><span><a href="https://github.com/eyaadouni">github.com/eyaadouni</a></span></p>
+</div><img class="photo" src="assets/img/photo.jpg" alt="Eya Adouni" onerror="this.style.display='none'"></header>
+<div class="body"><main>
+<section><h2>Profil</h2><p><b>Mastère de Recherche STIC · Développeuse.</b> Diplômée en développement des systèmes d'information (meilleur projet de fin d'études 2024), je termine un Mastère de Recherche STIC à l'ENET'Com Sfax, avec un mémoire mené en partenariat avec le LaBRI (Bordeaux) sur les communications V2X assistées par drones-relais : modélisation, apprentissage automatique et plateforme de décision. À la croisée des mathématiques appliquées, des réseaux et du développement logiciel, je mène un travail de bout en bout, du modèle au produit. Je recherche actuellement un doctorat, en France ou en Europe, dans les réseaux intelligents et la 6G, l'IoT et le V2X, les systèmes autonomes et la robotique, l'IA appliquée, la cybersécurité ou les systèmes embarqués.</p></section>
+<section><h2>Recherche</h2><div class="research"><p class="rtitle">Optimisation des communications V2X dans les zones blanches par une gestion intelligente du trafic de drones</p><p class="rmeta">ENET'Com Sfax · LaBRI / ENSEIRB-MATMECA, Bordeaux · 2025 – 2026 · Encadrement : Mme Hend Marouane, Pr. Mohamed Mosbah, Pr. Hassene Mnif · Article scientifique en préparation</p><ul>
+<li><b>Modélisation mathématique et physique :</b> géométrie de couverture, altitude optimale sous plafond réglementaire, dimensionnement de flotte, affectation par algorithme hongrois.</li>
+<li><b>Indice de confiance opérationnelle (OTI) :</b> poids appris par forêt aléatoire selon la mission, facteur de sécurité non compensatoire, hystérésis, explicabilité.</li>
+<li><b>Données et validation :</b> NASA Battery (SOH), DronePropA, RflyMAD · 8 000 profils · Random Forest / XGBoost / LightGBM · Monte-Carlo 100 % · simulation SUMO : 30 % → 80 % → 100 % de véhicules connectés.</li>
+<li><b>Plateforme de décision :</b> React / TypeScript, carte réelle de Bordeaux, sélection expliquée, jumeau numérique, journal temps réel.</li>
+</ul></div></section>
+<section><h2>Expérience</h2>
+<div class="entry"><div class="when">01 juin – 24 juil. 2026</div><div><span class="what">Stagiaire chercheuse — LaBRI / ENSEIRB-MATMECA</span> — <span class="where">Bordeaux, France</span><p>Stage de recherche financé par le LaBRI : conception, implémentation et validation de l'OTI et de la plateforme de décision.</p></div></div>
+<div class="entry"><div class="when">janv. – juin 2024</div><div><span class="what">Développeuse Full-Stack (stage de fin d'études) — Amitech Smart Solutions</span> — <span class="where">À distance, France</span><p>AlloProf, réseau social éducatif avec contrôle parental (React, Node.js, MongoDB). Meilleur projet de fin d'études 2024, distingué par le ministère.</p></div></div>
+<div class="entry"><div class="when">depuis juil. 2022</div><div><span class="what">Agent informatique — GAT Assurances</span> — <span class="where">El Hamma, Gabès</span><p>Dossiers clients, incidents informatiques, sauvegardes cloud, support à distance ; plateforme interne de gestion de clients.</p></div></div>
+<div class="entry"><div class="when">janv. – fév. 2023</div><div><span class="what">Développeuse back-end (stage) — Cyber Parc Djerba</span> — <span class="where">Djerba, Tunisie</span><p>Jobini, plateforme de recrutement (PHP, Laravel, MySQL).</p></div></div>
+<div class="entry"><div class="when">janv. – fév. 2022</div><div><span class="what">Développeuse web (stage) — T&amp;M Consulting</span> — <span class="where">Tunisie</span><p>Site vitrine Franchise Restaurant sous WordPress.</p></div></div>
+</section>
+<section><h2>Formation</h2>
+<div class="entry"><div class="when">2024 – 2026</div><div><span class="what">Mastère de Recherche en Technologies de l'Information et de la Communication</span> — <span class="where">ENET'Com Sfax</span><p>Réseaux nouvelle génération, signal, systèmes embarqués, cybersécurité. Classée parmi les meilleures de la promotion.</p></div></div>
+<div class="entry"><div class="when">2021 – 2024</div><div><span class="what">Licence — Développement des Systèmes d'Information</span> — <span class="where">ISET Djerba</span><p>Diplômée avec mention. Meilleur Projet de Fin d'Études 2024.</p></div></div>
+<div class="entry"><div class="when">2021</div><div><span class="what">Baccalauréat Sciences expérimentales</span> — <span class="where">Lycée Tahar Haddad, El Hamma</span></div></div>
+</section></main><aside class="side">
+<section><h2>Compétences</h2><div class="skill"><b>Apprentissage automatique</b><span>Python, scikit-learn, Random Forest, XGBoost, LightGBM, YOLOv8, validation Monte-Carlo, analyse de données</span></div><div class="skill"><b>Réseaux et simulation</b><span>V2X, drones-relais, modélisation de couverture, SUMO (TraCI, netconvert), traitement du signal</span></div><div class="skill"><b>Développement</b><span>React / TypeScript, Node.js, MERN, PHP / Laravel, Flutter, Leaflet, MySQL, MongoDB, Git</span></div><div class="skill"><b>Sécurité et outils</b><span>Notions de cybersécurité (Cisco, Fortinet), LaTeX, Office</span></div></section>
+<section><h2>Engagement</h2><div class="skill"><b>IEEE, branche étudiante ISET Djerba (2022–2024)</b><span>Secrétaire générale et formatrice : ateliers JavaScript, cybersécurité et bases de l'IA ; organisation d'événements et de hackathons, partenariats et sponsors. Membre IEEE Young Professionals.</span></div><div class="skill"><b>Ambassadrice du centre 4C</b><span>Centre de carrière et de certification des compétences, 2022.</span></div></section>
+<section><h2>Distinctions</h2><div class="skill"><span>Meilleur projet de fin d'études 2024, distingué par le ministère</span></div><div class="skill"><span>Hackathon entrepreneurial SANAD CEED / HILFSWERK : 2ᵉ place (2022)</span></div><div class="skill"><span>Hackathon ODD, Polytech INTL : 3ᵉ place</span></div><div class="skill"><span>Hackathon IoT Weekend, ISET Djerba (2023) · Innovation Camp InJaz Tunisia (2021, 2022, 2023)</span></div></section>
+<section><h2>Certifications</h2><div class="tags"><span class="tag">NASA Open Science 101 <em>· 13 août 2026</em></span><span class="tag">NSE 1 — Network Security Associate <em>· 12 avril 2026</em></span><span class="tag">Introduction to Cybersecurity <em>· 13 mai 2026</em></span><span class="tag">Intro to Machine Learning <em>· 12 avril 2026</em></span></div></section>
+<section><h2>Langues</h2><div class="langs"><div><span>Arabe</span><span>Langue maternelle</span></div><div><span>Français</span><span>Courant</span></div><div><span>Anglais</span><span>Professionnel</span></div></div></section>
+<section><h2>Au-delà</h2><p class="small">Astronomie et sciences de l'espace, en autodidacte depuis l'enfance ; petits projets techniques liés à l'astronomie (Code &amp; Cosmos).</p></section>
+</aside></div>
+</div>
+<div class="lang" data-lang="en" lang="en" dir="ltr">
+<header class="head"><div>
+<h1>Eya Adouni</h1>
+<p class="title">Research Master's in Information and Communication Sciences and Technologies</p><p class="sub">Vehicular networks (V2X), relay drones, machine learning · Full-stack developer</p>
+<p class="contacts"><span><a href="mailto:eyaadouni03@gmail.com">eyaadouni03@gmail.com</a></span><span>Gabès, Tunisia · willing to relocate to France</span><span><a href="https://eya-adouni.netlify.app/">eya-adouni.netlify.app</a></span><span><a href="https://www.linkedin.com/in/eya-adouni-716b5337b/">linkedin.com/in/eya-adouni-716b5337b</a></span><span><a href="https://github.com/eyaadouni">github.com/eyaadouni</a></span></p>
+</div><img class="photo" src="assets/img/photo.jpg" alt="Eya Adouni" onerror="this.style.display='none'"></header>
+<div class="body"><main>
+<section><h2>Profile</h2><p><b>Research Master's in ICT · Developer.</b> Graduate in information systems development (best final-year project 2024), completing a Research Master's in ICT at ENET'Com Sfax, with a thesis carried out in partnership with LaBRI (Bordeaux) on relay-drone-assisted V2X communications: modelling, machine learning and a decision platform. At the crossroads of applied mathematics, networks and software development, I carry work end to end, from model to product. Currently seeking a PhD position, in France or elsewhere in Europe, in intelligent networks and 6G, IoT and V2X, autonomous systems and robotics, applied AI, cybersecurity or embedded systems.</p></section>
+<section><h2>Research</h2><div class="research"><p class="rtitle">Optimising V2X communications in coverage gaps through intelligent management of drone traffic</p><p class="rmeta">ENET'Com Sfax · LaBRI / ENSEIRB-MATMECA, Bordeaux · 2025 – 2026 · Supervisors: Ms Hend Marouane, Prof. Mohamed Mosbah, Prof. Hassene Mnif · Scientific paper in preparation</p><ul>
+<li><b>Mathematical and physical modelling:</b> coverage geometry, optimal altitude under the regulatory ceiling, fleet sizing, Hungarian-algorithm assignment.</li>
+<li><b>Operational Trust Index (OTI):</b> mission-dependent weights learned by random forest, non-compensatory safety factor, hysteresis, explainability.</li>
+<li><b>Data and validation:</b> NASA Battery (SOH), DronePropA, RflyMAD · 8,000 profiles · Random Forest / XGBoost / LightGBM · Monte-Carlo 100% · SUMO simulation: 30% → 80% → 100% of vehicles connected.</li>
+<li><b>Decision platform:</b> React / TypeScript, real map of Bordeaux, explained selection, digital twin, real-time log.</li>
+</ul></div></section>
+<section><h2>Experience</h2>
+<div class="entry"><div class="when">1 Jun – 24 Jul 2026</div><div><span class="what">Research intern — LaBRI / ENSEIRB-MATMECA</span> — <span class="where">Bordeaux, France</span><p>Research internship funded by LaBRI: design, implementation and validation of the OTI and of the decision platform.</p></div></div>
+<div class="entry"><div class="when">Jan – Jun 2024</div><div><span class="what">Full-stack developer (final-year internship) — Amitech Smart Solutions</span> — <span class="where">Remote, France</span><p>AlloProf, educational social network with parental control (React, Node.js, MongoDB). Best final-year project 2024, distinguished by the Ministry.</p></div></div>
+<div class="entry"><div class="when">since Jul 2022</div><div><span class="what">IT officer — GAT Assurances</span> — <span class="where">El Hamma, Gabès</span><p>Customer records, IT incidents, cloud backups, remote support; internal customer-management platform.</p></div></div>
+<div class="entry"><div class="when">Jan – Feb 2023</div><div><span class="what">Back-end developer (internship) — Cyber Parc Djerba</span> — <span class="where">Djerba, Tunisia</span><p>Jobini, recruitment platform (PHP, Laravel, MySQL).</p></div></div>
+<div class="entry"><div class="when">Jan – Feb 2022</div><div><span class="what">Web developer (internship) — T&amp;M Consulting</span> — <span class="where">Tunisia</span><p>Franchise Restaurant showcase website built with WordPress.</p></div></div>
+</section>
+<section><h2>Education</h2>
+<div class="entry"><div class="when">2024 – 2026</div><div><span class="what">Research Master's in Information and Communication Technologies</span> — <span class="where">ENET'Com Sfax</span><p>Next-generation networks, signal processing, embedded systems, cybersecurity. Ranked among the top of the cohort.</p></div></div>
+<div class="entry"><div class="when">2021 – 2024</div><div><span class="what">Bachelor's — Information Systems Development</span> — <span class="where">ISET Djerba</span><p>Graduated with honours. Best final-year project 2024.</p></div></div>
+<div class="entry"><div class="when">2021</div><div><span class="what">Baccalaureate in Experimental Sciences</span> — <span class="where">Tahar Haddad High School, El Hamma</span></div></div>
+</section></main><aside class="side">
+<section><h2>Skills</h2><div class="skill"><b>Machine learning</b><span>Python, scikit-learn, Random Forest, XGBoost, LightGBM, YOLOv8, Monte-Carlo validation, data analysis</span></div><div class="skill"><b>Networks and simulation</b><span>V2X, relay drones, coverage modelling, SUMO (TraCI, netconvert), signal processing</span></div><div class="skill"><b>Development</b><span>React / TypeScript, Node.js, MERN, PHP / Laravel, Flutter, Leaflet, MySQL, MongoDB, Git</span></div><div class="skill"><b>Security and tools</b><span>Cybersecurity fundamentals (Cisco, Fortinet), LaTeX, Office</span></div></section>
+<section><h2>Involvement</h2><div class="skill"><b>IEEE Student Branch, ISET Djerba (2022–2024)</b><span>General Secretary and trainer: JavaScript, cybersecurity and AI-basics workshops; organisation of events and hackathons, partnerships and sponsors. IEEE Young Professionals member.</span></div><div class="skill"><b>4C Centre ambassador</b><span>Career and skills-certification centre, 2022.</span></div></section>
+<section><h2>Awards</h2><div class="skill"><span>Best final-year project 2024, distinguished by the Ministry</span></div><div class="skill"><span>Entrepreneurial Hackathon SANAD CEED / HILFSWERK: 2nd place (2022)</span></div><div class="skill"><span>SDG Hackathon, Polytech INTL: 3rd place</span></div><div class="skill"><span>IoT Weekend Hackathon, ISET Djerba (2023) · Innovation Camp InJaz Tunisia (2021, 2022, 2023)</span></div></section>
+<section><h2>Certifications</h2><div class="tags"><span class="tag">NASA Open Science 101 <em>· 13 Aug 2026</em></span><span class="tag">NSE 1 — Network Security Associate <em>· 12 Apr 2026</em></span><span class="tag">Introduction to Cybersecurity <em>· 13 May 2026</em></span><span class="tag">Intro to Machine Learning <em>· 12 Apr 2026</em></span></div></section>
+<section><h2>Languages</h2><div class="langs"><div><span>Arabic</span><span>Native</span></div><div><span>French</span><span>Fluent</span></div><div><span>English</span><span>Professional</span></div></div></section>
+<section><h2>Beyond work</h2><p class="small">Astronomy and space science, self-taught since childhood; small technical projects around astronomy (Code &amp; Cosmos).</p></section>
+</aside></div>
+</div>
+<div class="lang" data-lang="ar" lang="ar" dir="rtl">
+<header class="head"><div>
+<h1>Eya Adouni</h1>
+<p class="title">ماجستير بحث في علوم وتقنيات المعلومات والاتصال</p><p class="sub">الشبكات المركبية (V2X)، الدرونز المُرحِّلة، التعلّم الآلي · مطوّرة Full-stack</p>
+<p class="contacts"><span><a href="mailto:eyaadouni03@gmail.com">eyaadouni03@gmail.com</a></span><span>قابس، تونس · متنقلة إلى فرنسا</span><span><a href="https://eya-adouni.netlify.app/">eya-adouni.netlify.app</a></span><span><a href="https://www.linkedin.com/in/eya-adouni-716b5337b/">linkedin.com/in/eya-adouni-716b5337b</a></span><span><a href="https://github.com/eyaadouni">github.com/eyaadouni</a></span></p>
+</div><img class="photo" src="assets/img/photo.jpg" alt="Eya Adouni" onerror="this.style.display='none'"></header>
+<div class="body"><main>
+<section><h2>نبذة</h2><p><b>ماجستير بحث في علوم وتقنيات الاتصال · مطوّرة.</b> متخرّجة في تطوير نظم المعلومات (أفضل مشروع تخرج 2024)، أُنهي حاليًا ماجستير بحث في علوم وتقنيات الاتصال بـENET'Com صفاقس، بمذكرة مُنجزة بالشراكة مع مخبر LaBRI (بوردو) حول اتصالات V2X المدعومة بالدرونز المُرحِّلة: نمذجة، تعلّم آلي ومنصة قرار. في ملتقى الرياضيات التطبيقية والشبكات وتطوير البرمجيات، أقود العمل من النموذج إلى المنتج. أبحث حاليًا عن دكتوراه في فرنسا أو أوروبا في الشبكات الذكية والجيل السادس، إنترنت الأشياء وV2X، الأنظمة المستقلة والروبوتات، الذكاء الاصطناعي التطبيقي، الأمن السيبراني أو الأنظمة المدمجة.</p></section>
+<section><h2>البحث</h2><div class="research"><p class="rtitle">تحسين اتصالات V2X في المناطق العمياء عبر إدارة ذكية لحركة الدرونز</p><p class="rmeta">ENET'Com صفاقس · LaBRI / ENSEIRB-MATMECA، بوردو · 2025 – 2026 · الإشراف: السيدة هند مروان، الأستاذ محمد مصباح، الأستاذ حسان منيف · مقال علمي قيد الإعداد</p><ul>
+<li><b>نمذجة رياضية وفيزيائية :</b> هندسة التغطية، الارتفاع الأمثل تحت السقف التنظيمي، تحجيم الأسطول، التعيين بالخوارزمية الهنغارية.</li>
+<li><b>مؤشر الثقة التشغيلية (OTI) :</b> أوزان متعلَّمة بالغابة العشوائية حسب المهمة، عامل أمان غير تعويضي، تباطؤ (hysteresis)، قابلية التفسير.</li>
+<li><b>البيانات والتحقق :</b> NASA Battery (SOH)، DronePropA، RflyMAD · 8000 ملف · Random Forest / XGBoost / LightGBM · مونت كارلو 100٪ · محاكاة SUMO: 30٪ ← 80٪ ← 100٪ من المركبات المتصلة.</li>
+<li><b>منصة القرار :</b> React / TypeScript، خريطة حقيقية لبوردو، اختيار مُفسَّر، توأم رقمي، سجل لحظي.</li>
+</ul></div></section>
+<section><h2>الخبرات</h2>
+<div class="entry"><div class="when">1 جوان – 24 جويلية 2026</div><div><span class="what">متربصة باحثة — LaBRI / ENSEIRB-MATMECA</span> — <span class="where">بوردو، فرنسا</span><p>تربص بحثي بتمويل من LaBRI: تصميم وتنفيذ والتحقق من مؤشر OTI ومنصة القرار.</p></div></div>
+<div class="entry"><div class="when">جانفي – جوان 2024</div><div><span class="what">مطوّرة Full-Stack (تربص تخرج) — Amitech Smart Solutions</span> — <span class="where">عن بُعد، فرنسا</span><p>AlloProf، شبكة اجتماعية تعليمية مع رقابة أبوية (React، Node.js، MongoDB). أفضل مشروع تخرج 2024، بتنويه من الوزارة.</p></div></div>
+<div class="entry"><div class="when">منذ جويلية 2022</div><div><span class="what">عون معلوماتية — GAT Assurances</span> — <span class="where">الحامة، قابس</span><p>ملفات العملاء، الأعطال المعلوماتية، النسخ الاحتياطي السحابي، الدعم عن بُعد؛ منصة داخلية لإدارة العملاء.</p></div></div>
+<div class="entry"><div class="when">جانفي – فيفري 2023</div><div><span class="what">مطوّرة Back-end (تربص) — Cyber Parc Djerba</span> — <span class="where">جربة، تونس</span><p>Jobini، منصة توظيف (PHP، Laravel، MySQL).</p></div></div>
+<div class="entry"><div class="when">جانفي – فيفري 2022</div><div><span class="what">مطوّرة ويب (تربص) — T&amp;M Consulting</span> — <span class="where">تونس</span><p>موقع Franchise Restaurant التعريفي بـWordPress.</p></div></div>
+</section>
+<section><h2>التكوين</h2>
+<div class="entry"><div class="when">2024 – 2026</div><div><span class="what">ماجستير بحث في تكنولوجيا المعلومات والاتصال</span> — <span class="where">ENET'Com صفاقس</span><p>شبكات الجيل الجديد، معالجة الإشارة، الأنظمة المدمجة، الأمن السيبراني. من الأوائل في الدفعة.</p></div></div>
+<div class="entry"><div class="when">2021 – 2024</div><div><span class="what">إجازة — تطوير نظم المعلومات</span> — <span class="where">المعهد العالي للدراسات التكنولوجية بجربة</span><p>متخرّجة بامتياز. أفضل مشروع تخرج 2024.</p></div></div>
+<div class="entry"><div class="when">2021</div><div><span class="what">باكالوريا علوم تجريبية</span> — <span class="where">معهد الطاهر الحداد، الحامة</span></div></div>
+</section></main><aside class="side">
+<section><h2>المهارات</h2><div class="skill"><b>التعلّم الآلي</b><span>Python، scikit-learn، Random Forest، XGBoost، LightGBM، YOLOv8، تحقق مونت كارلو، تحليل البيانات</span></div><div class="skill"><b>الشبكات والمحاكاة</b><span>V2X، درونز مُرحِّلة، نمذجة التغطية، SUMO (TraCI، netconvert)، معالجة الإشارة</span></div><div class="skill"><b>التطوير</b><span>React / TypeScript، Node.js، MERN، PHP / Laravel، Flutter، Leaflet، MySQL، MongoDB، Git</span></div><div class="skill"><b>الأمن والأدوات</b><span>أساسيات الأمن السيبراني (Cisco، Fortinet)، LaTeX، Office</span></div></section>
+<section><h2>الالتزام الجمعياتي</h2><div class="skill"><b>فرع IEEE الطلابي، ISET Djerba (2022–2024)</b><span>الكاتبة العامة ومكوِّنة: ورشات JavaScript والأمن السيبراني وأساسيات الذكاء الاصطناعي؛ تنظيم فعاليات وهاكاثونات، شراكات ورعاة. عضو IEEE Young Professionals.</span></div><div class="skill"><b>سفيرة مركز 4C</b><span>مركز المهن وإشهاد الكفاءات، 2022.</span></div></section>
+<section><h2>الجوائز</h2><div class="skill"><span>أفضل مشروع تخرج 2024، بتنويه من الوزارة</span></div><div class="skill"><span>الهاكاثون الريادي SANAD CEED / HILFSWERK: المرتبة الثانية (2022)</span></div><div class="skill"><span>هاكاثون أهداف التنمية المستدامة، Polytech INTL: المرتبة الثالثة</span></div><div class="skill"><span>هاكاثون IoT Weekend، ISET Djerba (2023) · Innovation Camp InJaz Tunisia (2021، 2022، 2023)</span></div></section>
+<section><h2>الشهادات</h2><div class="tags"><span class="tag">NASA Open Science 101 <em>· 13 أوت 2026</em></span><span class="tag">NSE 1 — Network Security Associate <em>· 12 أفريل 2026</em></span><span class="tag">Introduction to Cybersecurity <em>· 13 ماي 2026</em></span><span class="tag">Intro to Machine Learning <em>· 12 أفريل 2026</em></span></div></section>
+<section><h2>اللغات</h2><div class="langs"><div><span>العربية</span><span>اللغة الأم</span></div><div><span>الفرنسية</span><span>طلاقة</span></div><div><span>الإنجليزية</span><span>مستوى مهني</span></div></div></section>
+<section><h2>خارج العمل</h2><p class="small">علم الفلك وعلوم الفضاء، تعلّم ذاتي منذ الطفولة؛ مشاريع تقنية صغيرة حول الفلك (Code &amp; Cosmos).</p></section>
+</aside></div>
+</div>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var D = {"fr": {"dir": "ltr", "title": "CV — Eya Adouni", "pdf": "assets/docs/cv-fr.pdf", "ticker": "Pour plus d'informations, visitez mon portfolio : "}, "en": {"dir": "ltr", "title": "CV — Eya Adouni (English)", "pdf": "assets/docs/cv-en.pdf", "ticker": "For more information, visit my portfolio: "}, "ar": {"dir": "rtl", "title": "السيرة الذاتية — Eya Adouni", "pdf": "assets/docs/cv-fr.pdf", "ticker": "لمزيد من المعلومات، تفضّلوا بزيارة موقعي: "}};
+  var PORTFOLIO = "https://eya-adouni.netlify.app/";
+  var buttons = document.querySelectorAll(".switch button");
+  var blocks = document.querySelectorAll(".lang");
+  var track = document.getElementById("ticker-track");
+  var pdf = document.getElementById("pdf-link");
+  function apply(lang) {
+    if (!D[lang]) { lang = "fr"; }
+    blocks.forEach(function (b) { b.classList.toggle("is-active", b.getAttribute("data-lang") === lang); });
+    buttons.forEach(function (btn) { btn.setAttribute("aria-pressed", btn.getAttribute("data-lang") === lang ? "true" : "false"); });
+    document.documentElement.setAttribute("lang", lang);
+    document.documentElement.setAttribute("dir", D[lang].dir);
+    document.title = D[lang].title;
+    pdf.setAttribute("href", D[lang].pdf);
+    var item = '<span class="ticker__item">' + D[lang].ticker + '<a href="' + PORTFOLIO + '">eya-adouni.netlify.app</a></span>';
+    track.innerHTML = item + item + item + item;
+    try { window.localStorage.setItem("cv-lang", lang); } catch (e) {}
+    try { window.history.replaceState(null, "", "?lang=" + lang); } catch (e) {}
+  }
+  buttons.forEach(function (btn) { btn.addEventListener("click", function () { apply(btn.getAttribute("data-lang")); }); });
+  var fromUrl = new URLSearchParams(window.location.search).get("lang");
+  var saved = null;
+  try { saved = window.localStorage.getItem("cv-lang"); } catch (e) {}
+  apply(fromUrl || saved || "fr");
+})();
+</script>
+</body>
+</html>
